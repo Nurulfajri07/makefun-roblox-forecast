@@ -28,8 +28,8 @@ Method (stdlib only, deterministic, no network, no wall-clock):
   more than it rewards confident right ones.
 
 Backtest (public archive, 6 rolling 72 h windows, 2026-10-30..2026-11-12):
-  mean log score -37.8 nats, worst window -40.6; on the kit's practice
-  window -35.2, vs -43.5 for the house persistence baseline.
+  mean log score -37.7 nats, worst window -41.4; on the kit's practice
+  window -34.6, vs -43.5 for the house persistence baseline.
 """
 
 import json
@@ -41,8 +41,8 @@ INPUT_DIR = os.environ.get("MAKEFUN_INPUT_DIR", "/input")
 OUTPUT_DIR = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
 
 # --- tuned constants (see module docstring for the backtest) -----------------
-SIG0 = 2.5        # rank-diffusion sigma at the window's start (ranks)
-SIG1 = 0.6        # sigma growth per sqrt(hour)
+SIG0 = 2.0        # rank-diffusion sigma at the window's start (ranks)
+SIG1 = 0.45       # sigma growth per sqrt(hour)
 DRIFT_CAP = 0.4   # max rank drift per hour (ranks/hour)
 TAU_REV = 120.0   # mean-reversion timescale toward the chart middle (hours)
 FADE_H = 48.0     # presence half-life for games no longer on the chart (hours)
